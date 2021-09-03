@@ -28,7 +28,9 @@ class FinderDecoratorFactory
                 '/etc/*.xsd',
                 '/view/*/*/*/*.less',
                 '/Test/Mftf/*/*.xml',
-                'et_schema.xml'
+                'et_schema.xml',
+                'routes.xml',
+                'webapi.xml'
             ],
             [
                 'ui_component',

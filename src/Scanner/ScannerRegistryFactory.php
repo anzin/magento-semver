@@ -77,7 +77,6 @@ class ScannerRegistryFactory
     /**
      * @param DependencyGraph|null $dependencyGraph
      * @param DependencyGraph|null $dependencyGraphCompare
-     * @param boolean              $mftf
      * @return array
      */
     public function create(DependencyGraph $dependencyGraph = null, DependencyGraph $dependencyGraphCompare = null)
@@ -150,6 +149,18 @@ class ScannerRegistryFactory
                         new EtSchema\XmlConverter()
                     ),
                 ],
+                ReportTypes::ROUTES => [
+                    'pattern' => [
+                        'routes.xml'
+                    ],
+                    'scanner' => new RoutesScanner(new XmlRegistry(), $moduleNameResolver)
+                ],
+                ReportTypes::WEB_API => [
+                    'pattern' => [
+                        'webapi.xml'
+                    ],
+                    'scanner' => new WebApiScanner(new XmlRegistry(), $moduleNameResolver)
+                ]
             ];
     }
 }

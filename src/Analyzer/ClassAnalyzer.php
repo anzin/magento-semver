@@ -14,6 +14,8 @@ use PHPSemVerChecker\Operation\ClassAdded;
 use PHPSemVerChecker\Operation\ClassRemoved;
 use PHPSemVerChecker\Registry\Registry;
 use PHPSemVerChecker\Report\Report;
+use Magento\SemanticVersionChecker\Operation\ControllerClassAdded;
+use Magento\SemanticVersionChecker\Operation\ControllerClassRemoved;
 
 /**
  * Class analyzer.
@@ -72,6 +74,10 @@ class ClassAnalyzer extends AbstractCodeAnalyzer
     protected function reportAddedNode($report, $fileAfter, $registryAfter, $classAfter)
     {
         $report->addClass(new ClassAdded($fileAfter, $classAfter));
+
+        if (strpos($fileAfter, '/Controller/') !== false) {
+            $report->add('controller', new ControllerClassAdded($fileAfter, $classAfter));
+        }
     }
 
     /**
@@ -86,6 +92,10 @@ class ClassAnalyzer extends AbstractCodeAnalyzer
     protected function reportRemovedNode($report, $fileBefore, $registryBefore, $classBefore)
     {
         $report->addClass(new ClassRemoved($fileBefore, $classBefore));
+
+        if (strpos($fileBefore, '/Controller/') !== false) {
+            $report->add('controller', new ControllerClassRemoved($fileBefore, $classBefore));
+        }
     }
 
     /**

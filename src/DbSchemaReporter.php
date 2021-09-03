@@ -33,5 +33,8 @@ class DbSchemaReporter extends TableReporter
         $this->outputReport($output, $this->report, 'less');
         $this->outputReport($output, $this->report, EtSchemaAnalyzer::CONTEXT);
         $this->outputReport($output, $this->report, 'mftf');
+        $this->outputReport($output, $this->report, 'routes');
+        $this->outputReport($output, $this->report, 'controller');
+        $this->outputReport($output, $this->report, 'webapi');
     }
 }

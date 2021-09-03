@@ -46,6 +46,10 @@ class NonApiAnalyzer extends Analyzer
         $dampenedDifferences = $report->getDifferences();
 
         foreach ($dampenedDifferences as $context => $levels) {
+            if ($context === 'controller') {
+                continue;
+            }
+
             $dampenedDifferences[$context][Level::PATCH] = array_merge(
                 $dampenedDifferences[$context][Level::MAJOR],
                 $dampenedDifferences[$context][Level::MINOR],

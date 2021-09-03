@@ -26,4 +26,6 @@ class ReportTypes
     public const LESS       = 'less';
     public const MFTF       = 'mftf';
     public const ET_SCHEMA  = EtSchemaAnalyzer::CONTEXT;
+    public const ROUTES     = 'routes';
+    public const WEB_API    = 'webapi';
 }

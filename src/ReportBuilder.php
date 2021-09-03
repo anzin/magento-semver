@@ -15,6 +15,8 @@ use Magento\SemanticVersionChecker\Analyzer\Factory\DbSchemaAnalyzerFactory;
 use Magento\SemanticVersionChecker\Analyzer\Factory\DiAnalyzerFactory;
 use Magento\SemanticVersionChecker\Analyzer\Factory\LayoutAnalyzerFactory;
 use Magento\SemanticVersionChecker\Analyzer\Factory\NonApiAnalyzerFactory;
+use Magento\SemanticVersionChecker\Analyzer\Factory\RoutesAnalyzerFactory;
+use Magento\SemanticVersionChecker\Analyzer\Factory\WebApiAnalizerFactory;
 use Magento\SemanticVersionChecker\Analyzer\Factory\SystemXmlAnalyzerFactory;
 use Magento\SemanticVersionChecker\Analyzer\Factory\XsdAnalyzerFactory;
 use Magento\SemanticVersionChecker\ClassHierarchy\StaticAnalyzerFactory;
@@ -59,6 +61,8 @@ class ReportBuilder
         ReportTypes::LESS       => LessAnalyzerFactory::class,
         ReportTypes::MFTF       => MftfAnalyzerFactory::class,
         ReportTypes::ET_SCHEMA  => EtSchemaAnalyzerFactory::class,
+        ReportTypes::ROUTES     => RoutesAnalyzerFactory::class,
+        ReportTypes::WEB_API    => WebApiAnalizerFactory::class
     ];
 
     /**
@@ -75,6 +79,8 @@ class ReportBuilder
         ReportTypes::XSD        => XsdAnalyzerFactory::class,
         ReportTypes::LESS       => LessAnalyzerFactory::class,
         ReportTypes::ET_SCHEMA  => EtSchemaAnalyzerFactory::class,
+        ReportTypes::ROUTES     => RoutesAnalyzerFactory::class,
+        ReportTypes::WEB_API    => WebApiAnalizerFactory::class
     ];
 
     /**
@@ -139,6 +145,8 @@ class ReportBuilder
                 'V063' => Level::MAJOR, // Public interface method parameter change
                 'V064' => Level::MAJOR, // Public trait method parameter change
                 'V066' => Level::MAJOR, // Private trait method parameter change
+                'C101' => Level::MAJOR, // Class controller removed
+                'C102' => Level::MINOR, // Class controller added
             ]
         );
 

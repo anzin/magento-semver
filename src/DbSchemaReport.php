@@ -25,5 +25,8 @@ class DbSchemaReport extends MergedReport
         $this->differences['xsd'] = $levels;
         $this->differences['less'] = $levels;
         $this->differences[EtSchemaAnalyzer::CONTEXT] = $levels;
+        $this->differences['routes'] = $levels;
+        $this->differences['controller'] = $levels;
+        $this->differences['webapi'] = $levels;
     }
 }
